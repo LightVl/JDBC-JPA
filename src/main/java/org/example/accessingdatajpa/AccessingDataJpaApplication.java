@@ -20,8 +20,8 @@ public class AccessingDataJpaApplication {
         //demo of the JDBC
         ApplicationContext ctx = new AnnotationConfigApplicationContext(MyApplicationContextConfiguration.class);
         DataSource dataSource = ctx.getBean(DataSource.class);
-        try {
-            Connection conn = dataSource.getConnection();
+        try(Connection conn = dataSource.getConnection())
+        {
             Statement stmt = conn.createStatement();
             ResultSet rst = stmt.executeQuery("select f_name, l_name, title from employee_data");
             while (rst.next()) {
@@ -29,7 +29,6 @@ public class AccessingDataJpaApplication {
                 System.out.print(rst.getString(2)+" ");
                 System.out.println(rst.getString(3));
             }
-            conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -1,10 +1,16 @@
 package org.example.accessingdatajpa;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Objects;
 
 @Entity
+@NoArgsConstructor
+@Setter
+@Getter
 public class Employee {
     @Id
     @Column(name = "id")
@@ -17,7 +23,7 @@ public class Employee {
         this.name = name;
         this.title = title;
     }
-    public Employee() {
+    /*public Employee() {
         this.name = null;
         this.title = null;
     }
@@ -48,7 +54,7 @@ public class Employee {
 
     public void setTitle(String title) {
         this.title = title;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
