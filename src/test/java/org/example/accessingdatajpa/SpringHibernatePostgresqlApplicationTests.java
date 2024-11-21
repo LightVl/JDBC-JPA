@@ -33,7 +33,7 @@ class SpringHibernatePostgresqlApplicationTests {
     }
 
     @Test
-    void addDeleteNewEmployee() throws Exception {
+    void addDeleteNewEmployee() {
 
         Employee irina = new Employee("Ирина","СММщик");
         employeeRepository.save(irina);
