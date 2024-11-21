@@ -1,4 +1,4 @@
-package org.example;
+package org.example.accessingdatajpa;
 
 import org.postgresql.ds.PGSimpleDataSource;
 import org.springframework.context.annotation.Bean;
@@ -17,10 +17,4 @@ public class MyApplicationContextConfiguration {
         dataSource.setURL("jdbc:postgresql://localhost:5432/postgres");
         return dataSource;
     }
-
-    /*@Bean
-    public UserDao userDao() { // (1)
-        return new UserDao(dataSource());
-    }*/
-
 }

@@ -1,7 +1,11 @@
-package org.example;
+package org.example.accessingdatajpa;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -9,10 +13,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+@SpringBootApplication
+public class AccessingDataJpaApplication {
+
     public static void main(String[] args) {
+        SpringApplication.run(AccessingDataJpaApplication.class, args);
+        //demo of the JDBC
         ApplicationContext ctx = new AnnotationConfigApplicationContext(MyApplicationContextConfiguration.class);
         DataSource dataSource = ctx.getBean(DataSource.class);
         try {
@@ -28,6 +34,5 @@ public class Main {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
