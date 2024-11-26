@@ -30,7 +30,6 @@ public class MyApplicationContextConfiguration {
         dataSource.setUser(username);
         dataSource.setPassword(password);
         dataSource.setURL(url);
-        System.out.println(url);
         return dataSource;
     }
 }
