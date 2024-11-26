@@ -16,8 +16,6 @@ import java.sql.Statement;
 public class AccessingDataJpaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AccessingDataJpaApplication.class, args);
-        //demo of the JDBC
         ApplicationContext ctx = new AnnotationConfigApplicationContext(MyApplicationContextConfiguration.class);
         DataSource dataSource = ctx.getBean(DataSource.class);
         try(Connection conn = dataSource.getConnection())
@@ -32,5 +30,6 @@ public class AccessingDataJpaApplication {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        SpringApplication.run(AccessingDataJpaApplication.class, args);
     }
 }

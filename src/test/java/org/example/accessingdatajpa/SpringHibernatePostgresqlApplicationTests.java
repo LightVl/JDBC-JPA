@@ -61,5 +61,9 @@ class SpringHibernatePostgresqlApplicationTests {
         Long dbEntryId = employeeRepository.findById(vasyaId).map(Employee::getId).orElseThrow();
 
         assertEquals(vasyaId, dbEntryId);
+        Optional<Employee> empToDelete2 = employeeRepository.findById(vasyaId);
+        if(empToDelete2.isPresent()) {
+            employeeRepository.delete(empToDelete2.get());
+        }
     }
 }
